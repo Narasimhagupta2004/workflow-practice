@@ -11,7 +11,7 @@ jobs:
         runs-on: Ubuntu-latest
         steps:
             - name: check file exists
-              run: actions/checkout@v4
+              uses: actions/checkout@v4
             - name: check file exists
               run: test -f index.html
     
@@ -20,7 +20,7 @@ jobs:
         runs-on: Ubuntu-latest
         steps:
             - name: check file exists
-              run: actions/checkout@v4
+              uses: actions/checkout@v4
             - name: check file exists
               run: test -f script.js
 
