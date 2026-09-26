@@ -1,0 +1,13 @@
+name : second workflow
+on: 
+    push:
+    workflow_dispatch:
+
+jobs:
+    second-workflow:
+        runs-on: ubuntu-latest
+        steps:
+            -   name : second workflow
+                run: echo "print second workflow"
+            -   name : second workflow func
+                run: echo "print workflow func bye"
