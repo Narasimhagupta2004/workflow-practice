@@ -1,0 +1,36 @@
+name: parallel jobs
+on: push
+
+jobs:
+    check-html-file:
+        runs-on: Ubuntu-latest
+        steps:
+            -   name: load code
+                uses: actions/checkout@v4
+            
+            -   name: check html file
+                run: test -f index.html
+        
+    check-js-file:
+        runs-on: Ubuntu-latest
+        steps:
+            -   name: load code
+                uses: actions/checkout@v4
+            
+            -   name: check js file
+                run: test -f script.js
+            
+    check-js-code:
+        runs-on: Ubuntu-latest
+        steps:
+            -   name: load code
+                uses: actions/checkout@v4
+            
+            -   name: check js code
+                run: node --check script.js
+
+            -   name: check html code
+                run: npx htmlhint index.html
+            
+        
+
