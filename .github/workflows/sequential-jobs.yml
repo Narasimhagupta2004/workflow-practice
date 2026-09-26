@@ -1,5 +1,5 @@
 name: parallel jobs
-on: push
+on: workflow_dispatch
 
 jobs:
     check-html-file:

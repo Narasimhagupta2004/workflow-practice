@@ -1,0 +1,36 @@
+name: conditional-job
+on: 
+    workflow_run:
+        workflows: second workflow
+        types: 
+            - completed
+
+jobs:
+    validite-html-file:
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        runs-on: Ubuntu-latest
+        steps:
+            - name: check file exists
+              run: actions/checkout@v4
+            - name: check file exists
+              run: test -f index.html
+    
+    validite-js-file:
+        
+        runs-on: Ubuntu-latest
+        steps:
+            - name: check file exists
+              run: actions/checkout@v4
+            - name: check file exists
+              run: test -f script.js
+
+    validite-js-code:
+        needs: [validite-html-file, validite-js-file]
+        runs-on: Ubuntu-latest
+        steps:
+            - name: check file exists
+              run: actions/checkout@v4
+            - name: check file exists
+              run: node --check script.js
+
+            
