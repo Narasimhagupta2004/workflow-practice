@@ -16,7 +16,7 @@ jobs:
               run: test -f index.html
     
     validite-js-file:
-        
+        if: ${{github.event.workflow_run.conclusion == 'success'}}
         runs-on: Ubuntu-latest
         steps:
             - name: check file exists
@@ -25,6 +25,7 @@ jobs:
               run: test -f script.js
 
     validite-js-code:
+        if: ${{github.event.workflow_run.conclusion == 'success'}}
         needs: [validite-html-file, validite-js-file]
         runs-on: Ubuntu-latest
         steps:

@@ -12,4 +12,4 @@ jobs:
             -   name : second workflow func
                 run: echo "print workflow func bye"
             -   name: success
-                run: exit 0
+                run: exit 1
