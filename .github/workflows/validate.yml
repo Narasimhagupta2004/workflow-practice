@@ -1,0 +1,13 @@
+name: validate test cases
+on: push
+
+jobs:
+    validate-code:
+        runs-on: Ubuntu-latest
+        steps:
+            -   name: load code
+                uses: actions/checkout@v4
+            -   name: validate html file
+                run: test -f index.html
+            -   name: validate js code
+                run: test -f script.js
